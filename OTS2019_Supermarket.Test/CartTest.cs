@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using OTS_Supermarket.Models;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,23 @@ using System.Threading.Tasks;
 
 namespace OTS_Supermarket.Test
 {
+    [TestFixture]
     public class CartTest
     {
+    [Test]
+    public void AddOneToCart_ShouldAdditemToCart_Success()
+    {
+        Cart cart = new Cart();
+            Monitor monitor = new Monitor();
 
+
+            //ACT
+            cart.AddOneToCart(monitor);
+
+            //Assert
+            Assert.That(cart.Size,Is.EqualTo(1));
+            Assert.That(cart.Amount, Is.EqualTo(100));
+
+    } 
     }
 }
